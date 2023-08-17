@@ -3,5 +3,9 @@
     flex-direction: column;
     width: 640px;
     height: 640px;
-    border: 1px solid black
+    border: 1px solid black;
+}
+
+.cell:hover {
+    background-color: darkgoldenrod;
 }
