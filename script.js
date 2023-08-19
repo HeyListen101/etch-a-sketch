@@ -4,6 +4,7 @@ const sizeVal = document.querySelector('.grid-size');
 const picker = document.querySelector('.current-color');
 const clear = document.querySelector('.clear');
 const dark = document.querySelector('.darken');
+const rainbow = document.querySelector('.rainbow');
 const colorMode = document.querySelector('.color-mode');
 const containerWidth = container.clientWidth;
 const containerHeight = container.clientHeight;
@@ -29,6 +30,11 @@ colorMode.addEventListener('click', () => {
 dark.addEventListener('click', () => {
     rgb = hexToRgb(color);
     option = 'dark';
+});
+
+// Set color selection to 'rainbow'
+rainbow.addEventListener('click', () => {
+    option = 'rainbow';
 });
 
 // Color picker option for users
@@ -64,13 +70,18 @@ function createGrid(numOfSquares) {
             
             col.addEventListener('mousedown', () => {
                 if (option == 'color') {
-                    console.log(color);
                     col.style.backgroundColor = color;
                 } else if (option == 'dark') {
                     rgb = hexToRgb(color);
                     color = `rgb(${rgb.r * 0.9}, ${rgb.g * 0.9}, ${rgb.b * 0.9})`;
                     col.style.backgroundColor = color;
                     color = rgbToHex(rgb.r * 0.9, rgb.g * 0.9, rgb.b * 0.9);
+                } else if (option == 'rainbow') {
+                    rVal = Math.floor(Math.random() * 255);
+                    gVal = Math.floor(Math.random() * 255);
+                    bVal = Math.floor(Math.random() * 255);
+                    color = rgbToHex(rVal, gVal, bVal);
+                    col.style.backgroundColor = color;
                 }
             });
             col.addEventListener('mouseover', () => {
@@ -82,6 +93,12 @@ function createGrid(numOfSquares) {
                         color = `rgb(${rgb.r * 0.9}, ${rgb.g * 0.9}, ${rgb.b * 0.9})`;
                         col.style.backgroundColor = color;
                         color = rgbToHex(rgb.r * 0.9, rgb.g * 0.9, rgb.b * 0.9);
+                    } else if (option == 'rainbow') {
+                        rVal = Math.floor(Math.random() * 255);
+                        gVal = Math.floor(Math.random() * 255);
+                        bVal = Math.floor(Math.random() * 255);
+                        color = rgbToHex(rVal, gVal, bVal);
+                        col.style.backgroundColor = color;
                     }
                 }
             });
