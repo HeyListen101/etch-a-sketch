@@ -1,3 +1,6 @@
+@import 'color-picker.css';
+@import 'range-slider.css';
+
 body {
     display: flex;
     justify-content: space-between;

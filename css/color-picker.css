@@ -1,0 +1,25 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+div {
+    height: 500px;
+    width: 500px;
+    border-radius: 250px;
+    border: 10px solid white;
+    overflow: hidden;
+}
+
+#favcolor {
+    border: none;
+    margin: 0;
+    padding: 0;
+    height: 200%;
+    width: 200%;
+    transform: translate(-25%, -25%);
+    cursor: pointer;
+}
