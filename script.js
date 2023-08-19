@@ -28,7 +28,9 @@ function createGrid(numOfSquares) {
 
 // Dynamically change size of grid using slider
 const slider = document.querySelector('.slider');
+const sizeVal = document.querySelector('.grid-size');
 slider.addEventListener('input', () => {
     createGrid(slider.value);
     console.log(typeof slider.value);
+    sizeVal.innerText = `${slider.value} x ${slider.value}`;
 });
