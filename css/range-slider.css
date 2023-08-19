@@ -1,5 +1,5 @@
 .slider {
-    -webkit-appearance: none;
+    appearance: none;
     width: 75%;
     height: 5px;
     background: black;
@@ -9,7 +9,7 @@
 
 .slider::-webkit-slider-thumb {
     border: 5px solid black;
-    -webkit-appearance: none;
+    appearance: none;
     border-radius: 15px;
     appearance: none;
     width: 25px;
@@ -19,7 +19,7 @@
 }
 
 .slider::-moz-range-thumb {
-    -webkit-appearance: none;
+    appearance: none;
     border-radius: 15px;
     width: 25px;
     height: 25px;
