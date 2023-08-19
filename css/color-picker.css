@@ -1,12 +1,12 @@
-.color-picker-div {
-    height: 500px;
-    width: 500px;
-    border-radius: 250px;
+.color-picker {
+    height: 150px;
+    width: 150px;
+    border-radius: 75px;
     border: 10px solid white;
     overflow: hidden;
 }
 
-.favcolor {
+.current-color {
     border: none;
     margin: 0;
     padding: 0;

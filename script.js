@@ -2,7 +2,24 @@ const container = document.querySelector('.container');
 const containerWidth = container.clientWidth;
 const containerHeight = container.clientHeight;
 
-createGrid(16);
+// Color picker option for users
+const picker = document.querySelector('.current-color');
+let color = 'black';
+picker.addEventListener('input', () => {
+    color = picker.value;
+});
+
+
+let mouseDown = false;
+document.body.addEventListener('mousedown', () => {
+    mouseDown = true;
+});
+document.body.addEventListener('mouseup', () => {
+    mouseDown = false;
+});
+
+
+createGrid(50);
 
 function createGrid(numOfSquares) {
     container.innerHTML = "";
@@ -18,6 +35,13 @@ function createGrid(numOfSquares) {
             const col = document.createElement('div');
             col.style.width = `${containerWidth / numOfSquares}px`;
             col.style.height = `${containerHeight / numOfSquares}px`;
+            col.addEventListener('mousedown', () => {
+                col.style.backgroundColor = color;
+            });
+            col.addEventListener('mouseover', () => {
+                if (mouseDown)
+                    col.style.backgroundColor = color;
+            });
             col.classList.add('cell');
             row.appendChild(col);
         }
@@ -31,6 +55,5 @@ const slider = document.querySelector('.slider');
 const sizeVal = document.querySelector('.grid-size');
 slider.addEventListener('input', () => {
     createGrid(slider.value);
-    console.log(typeof slider.value);
     sizeVal.innerText = `${slider.value} x ${slider.value}`;
 });

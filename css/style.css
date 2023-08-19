@@ -31,14 +31,12 @@ body {
 
 .container {
     display: flex;
+    flex-shrink: 0;
+    flex-grow: 0;
     flex-direction: column;
     width: 640px;
     height: 640px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-}
-
-.cell:hover {
-    background-color: black;
 }
 
 .controls {
