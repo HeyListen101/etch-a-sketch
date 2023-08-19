@@ -57,3 +57,9 @@ slider.addEventListener('input', () => {
     createGrid(slider.value);
     sizeVal.innerText = `${slider.value} x ${slider.value}`;
 });
+
+// Clear grid
+const clear = document.querySelector('.clear');
+clear.addEventListener('click', () => {
+    createGrid(slider.value);
+});
