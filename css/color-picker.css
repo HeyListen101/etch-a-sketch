@@ -1,12 +1,4 @@
-body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
-}
-
-div {
+.color-picker-div {
     height: 500px;
     width: 500px;
     border-radius: 250px;
@@ -14,7 +6,7 @@ div {
     overflow: hidden;
 }
 
-#favcolor {
+.favcolor {
     border: none;
     margin: 0;
     padding: 0;
