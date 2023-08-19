@@ -4,6 +4,7 @@ const sizeVal = document.querySelector('.grid-size');
 const picker = document.querySelector('.current-color');
 const clear = document.querySelector('.clear');
 const dark = document.querySelector('.darken');
+const colorMode = document.querySelector('.color-mode');
 const containerWidth = container.clientWidth;
 const containerHeight = container.clientHeight;
 let color = 'black';
@@ -18,12 +19,17 @@ document.body.addEventListener('mouseup', () => {
     mouseDown = false;
 });
 
+// Default color option
+colorMode.addEventListener('click', () => {
+    color = picker.value;
+    option = 'color';
+});
+
 // Darkening by 10%
 dark.addEventListener('click', () => {
     rgb = hexToRgb(color);
     option = 'dark';
 });
-
 
 // Color picker option for users
 picker.addEventListener('input', () => {
@@ -58,6 +64,7 @@ function createGrid(numOfSquares) {
             
             col.addEventListener('mousedown', () => {
                 if (option == 'color') {
+                    console.log(color);
                     col.style.backgroundColor = color;
                 } else if (option == 'dark') {
                     rgb = hexToRgb(color);
