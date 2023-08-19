@@ -1,16 +1,14 @@
 const container = document.querySelector('.container');
+const slider = document.querySelector('.slider');
+const sizeVal = document.querySelector('.grid-size');
+const picker = document.querySelector('.current-color');
+const clear = document.querySelector('.clear');
 const containerWidth = container.clientWidth;
 const containerHeight = container.clientHeight;
-
-// Color picker option for users
-const picker = document.querySelector('.current-color');
 let color = 'black';
-picker.addEventListener('input', () => {
-    color = picker.value;
-});
-
-
 let mouseDown = false;
+createGrid(slider.value);
+
 document.body.addEventListener('mousedown', () => {
     mouseDown = true;
 });
@@ -18,8 +16,21 @@ document.body.addEventListener('mouseup', () => {
     mouseDown = false;
 });
 
+// Color picker option for users
+picker.addEventListener('input', () => {
+    color = picker.value;
+});
 
-createGrid(50);
+// Dynamically change size of grid using slider
+slider.addEventListener('input', () => {
+    createGrid(slider.value);
+    sizeVal.innerText = `${slider.value} x ${slider.value}`;
+});
+
+// Clear grid
+clear.addEventListener('click', () => {
+    createGrid(slider.value);
+});
 
 function createGrid(numOfSquares) {
     container.innerHTML = "";
@@ -35,6 +46,7 @@ function createGrid(numOfSquares) {
             const col = document.createElement('div');
             col.style.width = `${containerWidth / numOfSquares}px`;
             col.style.height = `${containerHeight / numOfSquares}px`;
+            
             col.addEventListener('mousedown', () => {
                 col.style.backgroundColor = color;
             });
@@ -42,24 +54,10 @@ function createGrid(numOfSquares) {
                 if (mouseDown)
                     col.style.backgroundColor = color;
             });
+            
             col.classList.add('cell');
             row.appendChild(col);
         }
-
         container.appendChild(row);
     }
 }
-
-// Dynamically change size of grid using slider
-const slider = document.querySelector('.slider');
-const sizeVal = document.querySelector('.grid-size');
-slider.addEventListener('input', () => {
-    createGrid(slider.value);
-    sizeVal.innerText = `${slider.value} x ${slider.value}`;
-});
-
-// Clear grid
-const clear = document.querySelector('.clear');
-clear.addEventListener('click', () => {
-    createGrid(slider.value);
-});
