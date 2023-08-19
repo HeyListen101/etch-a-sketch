@@ -2,6 +2,8 @@ const container = document.querySelector('.container');
 const containerWidth = container.clientWidth;
 const containerHeight = container.clientHeight;
 
+createGrid(16);
+
 function createGrid(numOfSquares) {
     container.innerHTML = "";
     for (let i = 0; i < numOfSquares; i++) {
@@ -24,15 +26,9 @@ function createGrid(numOfSquares) {
     }
 }
 
-createGrid(16);
-
-const setSzBtn = document.querySelector('.setSize');
-
-setSzBtn.addEventListener('click', () => {
-    let size = 0;
-    do {
-        size = prompt('Enter Size (n) of Grid (n x n): ');
-    } while (size > 100);
-
-    createGrid(size);
+// Dynamically change size of grid using slider
+const slider = document.querySelector('.slider');
+slider.addEventListener('input', () => {
+    createGrid(slider.value);
+    console.log(typeof slider.value);
 });
