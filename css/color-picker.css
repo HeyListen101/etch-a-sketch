@@ -4,6 +4,13 @@
     border-radius: 75px;
     overflow: hidden;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    transition: 0.25s;
+}
+
+.color-picker:hover {
+    height: 175px;
+    width: 175px;
+    border-radius: 90px;
 }
 
 .current-color {
