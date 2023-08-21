@@ -12,6 +12,7 @@ let option = 'color';
 let color = 'black';
 let mouseDown = false;
 createGrid(slider.value);
+clicked(colorMode);
 
 document.body.addEventListener('mousedown', () => {
     mouseDown = true;
@@ -24,17 +25,28 @@ document.body.addEventListener('mouseup', () => {
 colorMode.addEventListener('click', () => {
     color = picker.value;
     option = 'color';
+    clicked(colorMode);
+    unclick([dark, rainbow]);
 });
 
 // Darkening by 10%
 dark.addEventListener('click', () => {
     rgb = hexToRgb(color);
     option = 'dark';
+    clicked(dark);
+    unclick([colorMode, rainbow]);
 });
 
 // Set color selection to 'rainbow'
 rainbow.addEventListener('click', () => {
     option = 'rainbow';
+    clicked(rainbow);
+    unclick([dark, colorMode]);
+});
+
+// Clear grid
+clear.addEventListener('click', () => {
+    createGrid(slider.value);
 });
 
 // Color picker option for users
@@ -46,11 +58,6 @@ picker.addEventListener('input', () => {
 slider.addEventListener('input', () => {
     createGrid(slider.value);
     sizeVal.innerText = `${slider.value} x ${slider.value}`;
-});
-
-// Clear grid
-clear.addEventListener('click', () => {
-    createGrid(slider.value);
 });
 
 function createGrid(numOfSquares) {
@@ -93,6 +100,21 @@ function changeColor(col) {
         color = rgbToHex(rVal, gVal, bVal);
     }
     col.style.backgroundColor = color;
+}
+
+function clicked(btn) {
+    btn.style.transform = 'translate-y(3px)';
+    btn.style.fontWeight = 'bold';
+    btn.style.color = 'white';
+    btn.style.backgroundColor = 'gray';
+}
+
+function unclick(btns) {
+    btns.forEach(btn => {
+        btn.style.fontWeight = 'normal';
+        btn.style.color = 'black';
+        btn.style.backgroundColor = '#F0F0F0'; 
+    });
 }
 
 function hexToRgb(hex) {
