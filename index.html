@@ -1,35 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="icon" type="image/x-icon" href="img/pixel-art.ico">
-        <script src="script.js" defer></script>
-        <title>
-            Etch-A-Sketch
-        </title>
-    </head>
-    <body>
-        <div class="name">
-            <h1>Etch-A-Sketch</h1>
-            <p>
-                A pixel canvas for you to freely paint on!
-            </p>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/x-icon" href="img/pixel-art.ico">
+    <script src="script.js" defer></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <title>Etch-A-Sketch</title>
+</head>
+<body>
+    <div class="name">
+        <h1>Etch-A-Sketch</h1>
+        <p>A pixel canvas for you to freely paint on!</p>
+    </div>
+    <div class="container"></div>
+    <div class="controls">
+        <button class="color-mode">Color</button>
+        <button class="darken">Darkening</button>
+        <button class="rainbow">Random</button>
+
+        <div class="undo-redo-container">
+            <button class="undo">Undo</button>
+            <button class="redo">Redo</button>
         </div>
-        <div class="container"></div>
-        <div class="controls">
-            <button class="color-mode">Color</button>
-            <button class="darken">Darkening</button>
-            <button class="rainbow">Random</button>
+        
+        <div class="clear-save-container">
             <button class="clear">Clear</button>
-            <div class="size-div">
-                <h3>Canvas Size</h3>
-                <h1 class="grid-size">50 x 50</h1>
-                <input type="range" min="1" max="100" value="50" class="slider">
-            </div>
-            <div class="color-picker">
-                <input type="color" class="current-color">
-            </div>
+            <button class="save" onclick="saveCanvas()">Save</button>
         </div>
-    </body>
+
+
+        
+        
+        <div class="size-div">
+            <h3>Canvas Size</h3>
+            <h1 class="grid-size">50 x 50</h1>
+            <input type="range" min="1" max="100" value="50" class="slider">
+        </div>
+        <div class="color-picker">
+            <input type="color" class="current-color">
+        </div>
+    </div>
+    
+</body>
 </html>

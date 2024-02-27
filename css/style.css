@@ -72,7 +72,8 @@ body {
     border: none;
     height: 40px;
     cursor: pointer;
-    width: 250px;
+    max-width: 250px;
+    width: 100%;
     transition: 0.25s;
     font-size: 15px;
     font-family: monospace;
@@ -85,6 +86,24 @@ body {
 }
 
 .controls .clear:active {
+    transform: translateY(3px);
+    background-color: grey;
+    color: white;
+}
+
+.controls .save:active {
+    transform: translateY(3px);
+    background-color: grey;
+    color: white;
+}
+
+.controls .undo:active {
+    transform: translateY(3px);
+    background-color: grey;
+    color: white;
+}
+
+.controls .redo:active {
     transform: translateY(3px);
     background-color: grey;
     color: white;
@@ -106,4 +125,28 @@ body {
 
 .size-div h3 {
     margin: 0;
+}
+
+.undo-redo-container {
+    display: flex;
+    flex-direction: row;
+    gap: 25px; 
+}
+
+
+.controls button.undo,
+.controls button.redo {
+    width: 113px;
+}
+
+
+.clear-save-container {
+    display: flex;
+    flex-direction: row;
+    gap: 25px; 
+}
+
+.controls button.clear,
+.controls button.save {
+    width: 113px;
 }
