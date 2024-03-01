@@ -15,8 +15,7 @@ body {
     justify-content: space-between;
     align-items: center;
     margin: 0;
-    font-family: monospace;
-    background-image: url('../img/bg-1.jpg');
+    font-family: monospace;s
 }
 
 .name {
